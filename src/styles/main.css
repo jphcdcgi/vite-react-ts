@@ -1,0 +1,111 @@
+:root {
+  --bg-light: #ccc;
+  --text-light: #ccc;
+  --bg-dark: #000000;
+  --text-dark: #000000;
+  --circle: border-radius: 50%;
+  --rounded: border-radius: 0.5rem;
+  --pill: border-radius: 1rem;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue",
+    Arial;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-bottom: 1rem;
+  line-height: normal;
+}
+
+a {
+  color: inherit;
+  text-decoration: underline;
+}
+
+a:hover,
+a:focus {
+  color: #ccc;
+  text-decoration: underline;
+}
+
+@media screen and (prefers-color-scheme: dark) {
+  .theme {
+    background: var(--bg-dark);
+    color: var(--text-light);
+  }
+}
+
+@media screen and (prefers-color-scheme: light) {
+  .theme {
+    background: var(--bg-light);
+    color: var(--text-dark);
+  }
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+}
+
+header,
+main,
+footer {
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+header {
+  margin-bottom: 2rem;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  background-color: #111;
+}
+
+main {
+  min-height: 70vh;
+}
+
+.hero {
+  background-color: darkslateblue;
+  padding: 2rem;
+  margin-bottom: 1rem;
+}
+
+footer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  place-content: center;
+  text-align: center;
+  padding: 10px;
+  border: none;
+  background-color: #111;
+}
+
+footer div {
+  padding: 10px;
+
+  &:first-child {
+    border-left: none;
+    border-right: 1px solid #333;
+  }
+}
+
+@media screen and (min-width: 700px) {
+  .wrapper {
+    max-width: 1400px;
+  }
+}

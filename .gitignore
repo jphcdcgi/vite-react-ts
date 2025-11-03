@@ -1,0 +1,43 @@
+# Node modules
+node_modules/
+
+# Vite / build
+build/
+dist/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Lockfiles (optional to ignore: keep if you want to commit lockfiles)
+# package-lock.json
+# yarn.lock
+
+# TypeScript
+*.tsbuildinfo
+
+# Editor directories and files
+.vscode/
+.idea/
+*.sublime-workspace
+*.sublime-project
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Coverage
+coverage/
+
+# Misc
+.env*
+.cache/
+*.bak
+*.log
+*.orig
+*.swp
+*.gz
+*.tar
+*.tmp
+*.zip
