@@ -8,9 +8,9 @@ export default function App() {
       </header>
       <main>
         <div className="hero">
-          <h2>Heroic banner</h2>
+          <h2>Hellow World!</h2>
         </div>
-        <h2>Rapid Development with React + Vite</h2>
+        <h2>Rapid Development with React and Vite</h2>
         <p>
           lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam,
           quod.

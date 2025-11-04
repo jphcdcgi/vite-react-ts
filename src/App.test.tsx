@@ -4,8 +4,6 @@ import App from "./App";
 describe("App", () => {
   it("renders welcome text", () => {
     render(<App />);
-    expect(
-      screen.getByText(/Vite \+ React \+ TypeScript/i)
-    ).toBeInTheDocument();
+    expect(screen.getByText("Hello World!")).toBeInTheDocument();
   });
 });
