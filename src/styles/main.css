@@ -1,11 +1,11 @@
 :root {
   --bg-light: #ccc;
-  --text-light: #ccc;
   --bg-dark: #000000;
   --text-dark: #000000;
-  --circle: border-radius: 50%;
-  --rounded: border-radius: 0.5rem;
-  --pill: border-radius: 1rem;
+  --text-light: #ccc;
+  --circle: 50%;
+  --rounded: 0.25rem;
+  --pill: 0.25rem;
 }
 
 * {
@@ -38,6 +38,16 @@ a:hover,
 a:focus {
   color: #ccc;
   text-decoration: underline;
+}
+
+button {
+  margin: 1rem;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: var(--pill);
+  background-color: var(--bg-dark);
+  color: #fff;
+  cursor: pointer;
 }
 
 @media screen and (prefers-color-scheme: dark) {
