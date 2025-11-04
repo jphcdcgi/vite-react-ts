@@ -27,10 +27,14 @@ npm install
 - `npm run format` — run Prettier to format files
 - `npm test` — run Vitest tests
 
-## TypeScript & ESLint notes
+## TypeScript & ESLint
 
-- The repo uses a base TypeScript config (`tsconfig.base.json`) extended by `tsconfig.json` and `tsconfig.node.json`.
-- ESLint is configured with an override that runs typed linting against `tsconfig.node.json` for `vite.config.ts` and `vitest.config.ts`. If your editor reports ESLint/TS parsing errors for those files, try restarting the editor or the ESLint server.
+TypeScript configuration is defined in `tsconfig.json` at the project root. Important settings you should know about:
+
+- `baseUrl` is set to `./src/` so imports may be written relative to the `src` root (for example `import Foo from 'components/Foo'`).
+- `types` includes `vitest/globals` so Vitest's globals (like `describe`, `it`) are available in tests.
+- `include` contains `src` and `vitest.setup.ts` so TypeScript picks up the test setup file and its augmentations (for example `@testing-library/jest-dom`).
+  ESLint is configured using `.eslintrc.cjs` with overrides that run type-aware linting for configuration files where appropriate. If ESLint flags those config files in your editor, restart the ESLint server or the editor so the overrides and `tsconfig.json` are picked up.
 
 ## Git
 
@@ -55,14 +59,14 @@ Vitest is configured to use the `jsdom` environment and loads `vitest.setup.ts` 
 
 This starter contains no license; add one if you plan to publish.
 
-## Installation notes (recent changes)
+## Installation (recent changes)
 
-- `package.json` now includes `format:check` (Prettier) in addition to `format`.
-- A `.prettierignore` was added and configured to ignore `package-lock.json`, `node_modules/`, `dist/` and `/.vite/` so Prettier won't format lockfiles or generated output.
-- TypeScript configuration was refactored: shared compiler options were moved into `tsconfig.base.json`, and `tsconfig.json` / `tsconfig.node.json` now `extends` that base to reduce duplication.
-- ESLint configuration was updated to a TypeScript + React + Prettier setup (`.eslintrc.cjs`), with explicit overrides for `vite.config.ts` and `vitest.config.ts` using `tsconfig.node.json`.
+- `package.json` includes a `format:check` script (Prettier) in addition to `format`.
+- A `.prettierignore` was added to skip `package-lock.json`, `node_modules/`, `dist/` and `/.vite/`.
+  TypeScript config highlights: - Project TypeScript configuration lives in `tsconfig.json` at the repo root. - `baseUrl: ./src/` enables absolute-style imports from the `src` root. - `types` includes `vitest/globals` and `include` includes `vitest.setup.ts` so testing globals and `@testing-library/jest-dom` types are available.
+  ESLint: - ESLint uses `.eslintrc.cjs` with per-file overrides; overrides point type-aware linting to `tsconfig.json` where applicable.
 
-When you check out the repo after these changes, run:
+After checking out the repo run:
 
 ```bash
 npm install
@@ -70,7 +74,7 @@ npm run format:check   # verify formatting
 npm run lint           # verify linting
 ```
 
-If you rely on a workspace TypeScript version in your editor, reload the editor or re-open the workspace so the new `tsconfig` layout is picked up.
+If your editor uses a workspace TypeScript version, reload the window to pick up the updated `tsconfig` layout.
 
 ## ESLint migration caveats
 
