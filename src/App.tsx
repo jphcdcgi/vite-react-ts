@@ -1,16 +1,27 @@
 "use client";
 
-import VideoPlaylist from "./components/VideoPlaylist";
+import { videos } from "./libs/video";
+import VideoPlayer from "./components/VideoPlayer";
 
 export default function App() {
   return (
     <div className="app">
       <header role="banner">
-        <span>Legendary banner</span>
+        <h1>ACME YouTube Player</h1>
       </header>
       <main>
         <h2>Featured Playlist</h2>
-        <VideoPlaylist />
+        <section className="plist-grid">
+          {videos.map(video => (
+            <VideoPlayer
+              key={video.src}
+              title={video.title}
+              src={video.src}
+              width={video.width}
+              height={video.height}
+            />
+          ))}
+        </section>
       </main>
       <footer>
         <div className="links">
