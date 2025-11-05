@@ -7,7 +7,7 @@ export default function App() {
   return (
     <div className="app">
       <header role="banner">
-        <span>Legendary banner</span>
+        <h1>ACME YouTube Player</h1>
       </header>
       <main>
         <h2>Featured Playlist</h2>
